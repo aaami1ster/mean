@@ -6,7 +6,7 @@ var EmployeeSchema = new Schema({
             type: String,
             required: true
     }, 
-    departiment: {
+    departmentId: {
         type: Schema.Types.ObjectId,
         ref: 'Department'
     },

@@ -1,9 +1,23 @@
 // Listing 6 - 8. Final example server
 var http = require('http');
-require('./lib/connection');
-var employeeService = require('./lib/employee');
-var responder = require('./lib/responseGenerator');
-var staticFile = responder.staticFile('/public');
+// require('./lib/connection');
+/* ########################## connect to database #####################################*/
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/mydb', {useMongoClient: true});
+
+// Close the Mongoose connection on Control+C
+process.on('SIGINT', function () {
+    mongoose.connection.close(function () {
+        console.log('Mongoose default connection disconnected');
+        process.exit(0);
+    });
+});
+require('./models/employee');
+require('./models/department');
+
+
+var Employee = mongoose.model('Employee');
+
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -21,22 +35,45 @@ const server = http.createServer((req, res) => {
     return res.end(req.method + ' is not implemented by this ➥server.');
   }
   if (_url = /^\/employees$/i.exec(req.url)) {
-    employeeService.getEmployees(function (error, data) {
+    Employee.find().sort('name').exec(function (error, data) {
+      console.log("get employees ...\r\n");
+      // console.log(data);
       if (error) {
-        return responder.send500(error, res);
+        console.error(data.red);
+        res.writeHead(500, {
+            'Content-Type': 'text/plain'
+        });
+        return res.end(data);
       }
-      return responder.sendJson(data, res);
+      res.writeHead(200, {
+        'Content-Type': 'application/json'
+      });
+      return res.end(JSON.stringify(data));
     });
-  } else if (_url = /^\/employees\/(\d+)$/i.exec(req.url)) {
+
+  } else if (_url = /^\/employees\/(\w+)$/i.exec(req.url)) {
     // then added
-    employeeService.getEmployee(_url[1], function (error, data) {
+    console.log(_url[1]);
+    Employee.findById(_url[1]).populate('departmentId').exec(function (error, data) {
       if (error) {
-        return responder.send500(error, res);
+        console.error(data.red);
+        res.writeHead(500, {
+            'Content-Type': 'text/plain'
+        });
+        return res.end(data);
       }
       if (!data) {
-        return responder.send404(res);
+        console.error("Resource not found");
+        res.writeHead(404, {
+            'Content-Type': 'text/plain'
+        });
+        return res.end('Not Found');
+        // return res.send404(res);
       }
-      return responder.sendJson(data, res);
+      res.writeHead(200, {
+        'Content-Type': 'application/json'
+      });
+      return res.end(JSON.stringify(data));
     });
   }
   else {

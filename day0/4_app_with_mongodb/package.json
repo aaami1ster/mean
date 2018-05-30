@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.1",
+    "bluebird": "^3.5.1",
     "mongoose": "^4.13.9",
     "mongoose-post-find": "0.0.2"
   }
