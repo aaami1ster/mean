@@ -9,4 +9,4 @@ process.on('SIGINT', function () {
     });
 });
 require('../models/employee');
-require('../models/team');
+require('../models/department');

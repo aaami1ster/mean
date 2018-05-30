@@ -8,5 +8,5 @@ function getEmployees(callback) {
 function getEmployee(employeeId, callback) {
     Employee.findOne({
         id: employeeId
-    }).populate('team').exec(callback);
+    }).populate('department').exec(callback);
 }
