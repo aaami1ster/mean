@@ -2,7 +2,9 @@
 <ul class="employees">
   <li *ngFor="let employee of employees" (click)="onSelect(employee)" 
   [class.selected]=" employee === selectedEmployee">
-    <span class="badge">{{employee.id}}</span> {{employee .name}}
+    <a routerLink="/detail/{{employee.id}}">  
+      <span class="badge">{{employee.id}}</span> {{employee .name}}
+    </a>
   </li>
 </ul>
-<app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
+<!-- <app-employee-detail [employee]="selectedEmployee"></app-employee-detail> -->
