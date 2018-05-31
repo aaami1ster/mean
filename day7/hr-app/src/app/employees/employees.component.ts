@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EMPLOYEES } from '../mock-employees';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employees',
@@ -13,15 +14,21 @@ export class EmployeesComponent implements OnInit {
     name: 'omer'
   };
   selectedEmployee: Employee;
-  employees = EMPLOYEES;
+  // employees = EMPLOYEES;
+  employees: Employee[];
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.getEmployees();
   }
 
   onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
+  }
+
+  getEmployees(): void {
+    this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
   }
 
 }
