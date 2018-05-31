@@ -2,6 +2,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var EmployeeSchema = new Schema({
+    id: {
+            type: Number,
+            required: true,
+            unique: true
+    },
     name: {
             type: String,
             required: true

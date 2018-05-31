@@ -1,82 +1,52 @@
 [
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16090"),
+    "id": 1000,
     "name" : "abdalla", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed50"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed50")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16091"),
+    "id": 1001,
     "name" : "omer", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed50"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed50")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16092"),
+    "id": 1002,
     "name" : "hassan", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed50"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed50")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16093"),
+    "id": 1003,
     "name" : "mohammed", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed51"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed51")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16094"),
+    "id": 1004,
     "name" : "ahmed", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed51"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed51")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16095"),
+    "id": 1005,
     "name" : "walleed", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed51"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed51")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16096"),
+    "id": 1006,
     "name" : "abbas", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed52"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed52")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16097"),
+    "id": 1007,
     "name" : "mohaned", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed52"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed52")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16098"),
+    "id": 1008,
     "name" : "osman", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed52"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed52")
 },
 { 
-    "_id" : ObjectId("5aa808f466d5ec2ff6d16099"),
+    "id": 1009,
     "name" : "khalid", 
-    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed53"),
-    "updatedAt": ISODate("2018-03-14T07:47:36.908+0000"),
-    "createdAt": ISODate("2018-03-14T07:04:03.130+0000"),
-    "__v" : NumberInt(0)
+    "departmentId": ObjectId("5aa7c707b88a9d1fdae0ed53")
 }
 ]
