@@ -18,7 +18,7 @@ require('./models/department');
 
 var Employee = mongoose.model('Employee');
 
-
+/* ########################## server #####################################*/
 const hostname = '127.0.0.1';
 const port = 3000;
 
