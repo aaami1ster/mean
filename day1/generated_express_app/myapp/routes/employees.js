@@ -4,14 +4,16 @@ var Employee = mongoose.model('Employee');
 var department = mongoose.model('Department');
 var router = express.Router();
 router.get('/employees', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
   Employee.find().sort('name.last').exec(function(error, results) {
     if (error) { return next(error); }
-    
+    res.header("Access-Control-Allow-Origin", "*");
     // Respond with valid data
     res.json(results);
   });
 });
 router.get('/employees/:employeeId', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
   Employee.findOne({
     _id: req.params.employeeId
   }).populate('department').exec(function (error, results) {
