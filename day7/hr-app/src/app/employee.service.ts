@@ -10,20 +10,12 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  // getEmployees(): Observable<Employee[]> {
-  //   return of(EMPLOYEES);
-  // }
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>('http://localhost:3000/employees');
   }
 
-  // getEmployee(id: number): Observable<Employee> {
-  //   return of(EMPLOYEES.find(user => user.id === id));
-  // }
   getEmployee(id: number) {
-    const headers = { 'Content-Type': 'application/json' };
-
-    return this.http.get<Employee>('http://localhost:3000/employees/' + id, { headers: headers });
+    return this.http.get<Employee>('http://localhost:3000/employees/' + id);
   }
 
 }
