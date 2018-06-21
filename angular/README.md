@@ -12,7 +12,7 @@ By the end of the tutorial you will be able to do the following:
 
 # Steps
 
-1. Then install the Angular CLI globally
+1. Install the Angular CLI globally
 
     ```zsh
     $ npm install -g @angular/cli
@@ -21,4 +21,25 @@ By the end of the tutorial you will be able to do the following:
     $ ng serve –open
     ```
 
-1. 
+1. Create New Application
+    ```zsh
+    $ ng new my-app
+    ```
+1. Open the application in the browser
+    ```zsh
+    $ cd my-app 
+    $ ng serve –open
+    ```
+1. Change the application title
+    change title in app.component.ts
+    ```typescript
+    export class AppComponent {
+        title = 'HR Management';
+    }
+    ```
+1. Edit app.component.html
+    ```html
+    <div style="text-align:center">
+		<h1>{{ title }}</h1>
+	</div>
+    ```
