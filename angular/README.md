@@ -251,23 +251,28 @@ By the end of the tutorial you will be able to do the following:
     [employee]="selectedEmployee" is an Angular **property binding**.
     
     
-## Services
-1. Create the UserService
-ng generate service employee
-@Injectable() services
+## Employee Services
+1. Create the EmployeeService
+    ```shell
+    ng generate service employee
+    ```
+    
 1. Get employee data
-Import the Employee and EMPLOYEES.
-import { Employee } from './employee';
-import { EMPLOYEES } from './mock-employees';
 
-Add a getEmployees method to return the mock employees.
-getEmployees(): Employee[] {
-return EMPLOYEES;
-}
+    Import the Employee and EMPLOYEES.
+    ```typescript
+    import { Employee } from './employee';
+    import { EMPLOYEES } from './mock-employees';
+    ```
 
+1. Add a getEmployees method to return the mock employees.
+    ```typescript
+    getEmployees(): Employee[] {
+        return EMPLOYEES;
+    }
+    ```
 
-1. Provide the UserService
-In app.module
+1. Provide the UserService. In app.module
     ```typescript
     import { EmployeeService } from './employee.service';
     ```
@@ -276,16 +281,16 @@ In app.module
     ```
 1. Update EmployeeComponent
 
-
-```typescript
-Import Userservice
-import { EmployeeService } from '../employee.service';
-```
+    Import Userservice
+    ```typescript
+    import { EmployeeService } from '../employee.service';
+    ```
 
 1. Replace the definition of the employees property with a simple declaration.
     ```typescript
     employees: Employee[];
     ```
+    
 1. Inject  EmployeeService
     ```typescript
     constructor( private employeeService: EmployeeService) { }
@@ -304,21 +309,20 @@ import { EmployeeService } from '../employee.service';
     }
     ```
 
-
 1. See it run
 1. Observable data
-    This will not work in a real app.
-    EmployeeService.getUsers() must have an asynchronous signature of some kind.
-    It can take a callback. It could return a Promise. It could return an Observable.
-    
-    ```typescript
-    Observable EmployeeService
-    
-    import { Observable } from 'rxjs/Observable';
-    import { of } from 'rxjs/observable/of';
-    Subscribe in EmployeesComponent
-    Change the getEmployees to
-    getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
-    }
-    ```
+
+    - This will not work in a real app.
+    - EmployeeService.getEmployees() must have an asynchronous signature of some kind.
+    - It can take a callback. It could return a Promise. It could return an Observable.
+    - Observable EmployeeService
+        ```typescript
+        import { Observable } from 'rxjs/Observable';
+        import { of } from 'rxjs/observable/of';
+        ``` 
+    - Subscribe in EmployeesComponent: Change the getEmployees to
+        ```typescript
+        getEmployees(): void {
+          this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
+        }
+        ```
