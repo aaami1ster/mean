@@ -572,3 +572,57 @@ By the end of the tutorial you will be able to do the following:
         this.location.back();
     }
     ```
+
+## HTTP
+
+1. Enable HTTP services
+    HttpClient is Angular's mechanism for communicating with a remote server over HTTP. 
+    To make HttpClient available everywhere in the app, open the root AppModule:
+    import the HttpClientModule symbol from @angular/common/http,
+    add it to the @NgModule.imports array.
+    
+    import { HttpClientModule } from '@angular/common/http';
+    ....
+    
+    imports: [
+    ....
+    HttpClientModule
+    ],
+1. Employees and HTTP employee.service
+
+    Import some HTTP symbols that you'll need:
+    ```typescript
+    import { HttpClient, HttpHeaders } from '@angular/common/http';
+   ```
+    Inject HttpClient into the constructor in a private property called http.
+    ```typescript
+    constructor(private http: HttpClient) { }
+    ```
+    
+1. add getemployees
+    ```typescript
+    getEmployees(): Observable<Employee[]> {
+        return this.http.get<Employee[]>('http://localhost:3000/employees');
+    }
+    ```
+
+1. fix CORS issue
+
+    - Origin http://localhost:4200 is not allowed by Access-Control-Allow-Origin.
+    - In app.js (server) add:
+    ```javascript
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+    ```
+
+
+1. add getemployee
+    ```typescript
+    getEmployee(id: number) {
+        return this.http.get<Employee>('http://localhost:3000/employees/' + id);
+    }
+    ```
+
