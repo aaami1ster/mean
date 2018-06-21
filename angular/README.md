@@ -35,7 +35,7 @@ By the end of the tutorial you will be able to do the following:
     }
     ```
 1. Edit _app.component.html_
-    ```angular2html
+    ```html
     <div style="text-align:center">
        <h1>{{ title }}</h1>
 	</div>
@@ -51,7 +51,7 @@ By the end of the tutorial you will be able to do the following:
     employee = 'abdalla';
     ```
 1. Show employee property in _employees.component.html_ (Interpolation)
-    ```angular2html
+    ```html
     {{employee}}
     ```
 1. create employee class _src/app/employee.ts_
@@ -76,7 +76,7 @@ By the end of the tutorial you will be able to do the following:
  1. Show the employee object: 
  
     replace _employees.component.html_ with following
-    ```angular2html
+    ```html
     <h2>{{ employee.name }} Details</h2>
     <div>
         <span>id: </span>{{employee.id}}
@@ -87,14 +87,14 @@ By the end of the tutorial you will be able to do the following:
     ```
     
 1. Format employee.name with the UppercasePipe
-    ```angular2html
+    ```html
     <h2>{{ employee.name | uppercase}} Details</h2>
     ```
 
 1. Edit the employee  (Two-way binding):
     
     Refactor the details area in the _EmployeesComponent.html_
-    ```angular2html
+    ```html
     <div>
         <label>name:
            <input [(ngModel)]="employee.name" placeholder="name">
@@ -158,7 +158,7 @@ By the end of the tutorial you will be able to do the following:
 1. List users with *ngFor
 
     Open the EmployeesComponent template file and make the following changes:
-    ```angular2html
+    ```html
     <h2>My Employees</h2>
     <ul class="employees">
         <li *ngFor="let employee of employees">
@@ -169,7 +169,7 @@ By the end of the tutorial you will be able to do the following:
 1. Style the employees list
 
 1. Add a click event binding
-    ```angular2html
+    ```html
     <li *ngFor="let employee of employees" (click)="onSelect(employee)">
     ```
 
@@ -186,7 +186,7 @@ By the end of the tutorial you will be able to do the following:
     ```
 
 1. Update the details template
-    ```angular2html
+    ```html
     <h2>{{ selectedEmployee.name | uppercase }} Details</h2>
     <div>
     <span>id: </span>{{selectedEmployee .id}}</div>
@@ -203,7 +203,7 @@ By the end of the tutorial you will be able to do the following:
     <div>
     ```
 1. Style the selected hero (class binding)
-    ```angular2html
+    ```html
     <li *ngFor="let employee of employees" 
         [class.selected]=" employee === selectedEmployee"
         (click)="onSelect(employee)">
@@ -216,7 +216,7 @@ By the end of the tutorial you will be able to do the following:
     ```
 
 1. write template
-    ```angular2html
+    ```html
     <div *ngIf="employee">
         <h2>{{ employee.name | uppercase}} Details</h2>
         <div>
@@ -244,7 +244,7 @@ By the end of the tutorial you will be able to do the following:
 
     Update the EmployeesComponent template
 
-    ```angular2html
+    ```html
     <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
     ```
 
