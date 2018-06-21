@@ -272,7 +272,7 @@ By the end of the tutorial you will be able to do the following:
     }
     ```
 
-1. Provide the UserService. In app.module
+1. Provide the EmployeeService. In app.module
     ```typescript
     import { EmployeeService } from './employee.service';
     ```
@@ -281,7 +281,7 @@ By the end of the tutorial you will be able to do the following:
     ```
 1. Update EmployeeComponent
 
-    Import Userservice
+    Import EmployeeService
     ```typescript
     import { EmployeeService } from '../employee.service';
     ```
