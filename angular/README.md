@@ -185,7 +185,7 @@ By the end of the tutorial you will be able to do the following:
     
     ```
 
-    Update the details template
+1. Update the details template
     ```angular2html
     <h2>{{ selectedEmployee.name | uppercase }} Details</h2>
     <div>
@@ -209,4 +209,43 @@ By the end of the tutorial you will be able to do the following:
         (click)="onSelect(employee)">
     ```
     
-    
+## Master/Detail Components
+1. Create the EmployeeDetailComponent
+    ```shell
+    ng generate component employee-detail
+    ```
+
+1. write template
+    ```angular2html
+    <div *ngIf="employee">
+        <h2>{{ employee.name | uppercase}} Details</h2>
+        <div>
+            <span>id: </span>{{employee .id}}
+        </div>
+        <div>
+            <label>name:
+               <input [(ngModel)]="employee .name" placeholder="name">
+            </label>
+        </div>
+    </div>
+    ```
+
+1. Add the __@Input()__ user property in _employee-detail.component.ts_
+
+    The user property must be an Input property, annotated with the @Input() decorator, because the external EmployeesComponent will bind to it
+    ```typescript
+    import { Component, OnInit, Input } from '@angular/core';
+    import { Employee } from '../employee';
+    ```
+    ```typescript
+    @Input() employee: Employee;
+    ```
+1. Show the EmployeeDetailComponent
+
+    Update the EmployeesComponent template
+
+    ```angular2html
+    <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
+    ```
+
+    [user]="selectedEmployee" is an Angular property binding.
