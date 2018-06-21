@@ -15,10 +15,7 @@ By the end of the tutorial you will be able to do the following:
 1. Install the Angular CLI globally
 
     ```zsh
-    $ npm install -g @angular/cli
-    $ ng new my-app
-    $ cd my-app 
-    $ ng serve –open
+    npm install -g @angular/cli
     ```
 
 1. Create New Application
@@ -31,13 +28,13 @@ By the end of the tutorial you will be able to do the following:
     $ ng serve –open
     ```
 1. Change the application title
-    change title in app.component.ts
+    change title in _app.component.ts_
     ```typescript
     export class AppComponent {
         title = 'HR Management';
     }
     ```
-1. Edit app.component.html
+1. Edit _app.component.html_
     ```angular2html
     <div style="text-align:center">
        <h1>{{ title }}</h1>
