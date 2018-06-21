@@ -38,13 +38,87 @@ By the end of the tutorial you will be able to do the following:
     }
     ```
 1. Edit app.component.html
-    ```html
+    ```angular2html
     <div style="text-align:center">
-		<h1>{{ title }}</h1>
+       <h1>{{ title }}</h1>
 	</div>
     ```
-## Employees 
+## Edit Employees 
 1. Create employees component
 	```shell
 	ng generate component employees
 	```
+1. Declare EmployeesComponent (already done by cli)
+1. Add a property to _employees.component.ts_
+    ```typescript
+    employee = 'abdalla';
+    ```
+1. Show employee property in _employees.component.html_
+    ```angular2html
+    {{employee}}
+    ```
+1. create employee class _src/app/employee.ts_
+    ```typescript
+    export class Employee {
+       id: number;
+       name: string;
+    }
+    ```
+
+1. in _employees.component.ts_ import Employee class, and initiate new employee class
+    ```typescript
+    ....
+    import { Employee } from '../employee';
+    .....
+    export class EmployeesComponent implements OnInit {
+    employee: Employee = {
+       id: 1000,
+       name: 'omer'
+    };
+    ......
+    ```
+ 1. Show the hero object: replace _employees.component.html_
+    ```angular2html
+    <h2>{{ employee.name }} Details</h2>
+    <div>
+        <span>id: </span>{{employee.id}}
+    </div>
+    <div>
+        <span>name: </span>{{employee.name}}
+    </div>
+    ```
+    
+1. Format employee.name with the UppercasePipe
+    ```angular2html
+    <h2>{{ employee.name | uppercase}} Details</h2>
+    ```
+
+1. Edit the employee  (Two-way binding):
+    Refactor the details area in the _EmployeesComponent.html_
+    ```angular2html
+    <div>
+        <label>name:
+           <input [(ngModel)]="employee.name" placeholder="name">
+        </label>
+    </div>
+    ```
+    
+1. Import The missing FormsModule:
+
+    Open AppModule (_app.module.ts_) and import the FormsModule
+    
+    ```typescript
+    import { FormsModule } from '@angular/forms';
+    ```
+    
+    Then add FormsModule to the @NgModule metadata's imports array, which contains a list of external modules that the app needs.
+    
+    ```typescript
+    imports: [
+        ...
+        FormsModule,
+        ...
+    ],
+    ```
+    
+## Display employees list
