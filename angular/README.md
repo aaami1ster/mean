@@ -50,7 +50,7 @@ By the end of the tutorial you will be able to do the following:
     ```typescript
     employee = 'abdalla';
     ```
-1. Show employee property in _employees.component.html_
+1. Show employee property in _employees.component.html_ (Interpolation)
     ```angular2html
     {{employee}}
     ```
@@ -64,17 +64,18 @@ By the end of the tutorial you will be able to do the following:
 
 1. in _employees.component.ts_ import Employee class, and initiate new employee class
     ```typescript
-    ....
     import { Employee } from '../employee';
-    .....
+    ```
+    ```typescript
     export class EmployeesComponent implements OnInit {
     employee: Employee = {
        id: 1000,
        name: 'omer'
     };
-    ......
     ```
- 1. Show the hero object: replace _employees.component.html_
+ 1. Show the employee object: 
+ 
+    replace _employees.component.html_ with following
     ```angular2html
     <h2>{{ employee.name }} Details</h2>
     <div>
@@ -91,6 +92,7 @@ By the end of the tutorial you will be able to do the following:
     ```
 
 1. Edit the employee  (Two-way binding):
+    
     Refactor the details area in the _EmployeesComponent.html_
     ```angular2html
     <div>
@@ -119,3 +121,92 @@ By the end of the tutorial you will be able to do the following:
     ```
     
 ## Display employees list
+1. Create mock
+   
+    Create a file called _mock-employees.ts_ in the _src/app_ folder. Define a EMPLOYEES constant as an array of ten employees and export it.
+    
+    ```typescript
+    import { Employee } from './employee';
+    
+    export const EMPLOYEES: Employee[] =
+    [
+        { 'id': 1000, 'name': 'abdalla' },
+        { 'id': 1001, 'name': 'omer' },
+        { 'id': 1002, 'name': 'hassan' },
+        { 'id': 1003, 'name': 'mohammed' },
+        { 'id': 1004, 'name': 'ahmed' },
+        { 'id': 1005, 'name': 'walleed' },
+        { 'id': 1006, 'name': 'abbas' },
+        { 'id': 1007, 'name': 'mohaned' },
+        { 'id': 1008, 'name': 'osman' },
+        { 'id': 1009, 'name': 'khalid' }
+    ];
+    ```
+    
+1. Displaying employees
+
+    Open the employeesComponent class file (_employees/employees.component.ts_) and import the EMPLOYEES.
+    ```typescript
+    import { EMPLOYEES } from '../mock-employees';
+    ```
+
+    Add a employees property to the class that exposes these employees for binding.
+    ```typescript
+    employees = EMPLOYEES;
+    ```
+    
+1. List users with *ngFor
+
+    Open the EmployeesComponent template file and make the following changes:
+    ```angular2html
+    <h2>My Employees</h2>
+    <ul class="employees">
+        <li *ngFor="let employee of employees">
+           <span class="badge">{{employee.id}}</span> {{employee .name}}
+        </li>
+    </ul>
+    ```
+1. Style the employees list
+
+1. Add a click event binding
+    ```angular2html
+    <li *ngFor="let employee of employees" (click)="onSelect(employee)">
+    ```
+
+1. Add the click event handler 
+    ```typescript
+    selectedEmployee: Employee;
+     
+    ...
+     
+    onSelect(employee: Employee): void {
+       this.selectedEmployee = employee;
+    }
+    
+    ```
+
+    Update the details template
+    ```angular2html
+    <h2>{{ selectedEmployee.name | uppercase }} Details</h2>
+    <div>
+    <span>id: </span>{{selectedEmployee .id}}</div>
+    <div>
+    <label>name:
+    <input [(ngModel)]="selectedEmployee .name" placeholder="name">
+    </label>
+    </div>
+    Hide empty details with *ngIf (fix default undefined issue)
+    <div *ngIf="selectedEmployee">
+     
+    ....
+     
+    <div>
+    ```
+1. Style the selected hero (class binding)
+    ```angular2html
+    <li *ngFor="let employee of employees" 
+        [class.selected]=" employee === selectedEmployee"
+        (click)="onSelect(employee)">
+    ```
+    
+    
