@@ -2,7 +2,7 @@
 
 1. Then install the Angular CLI globally
 
-    ```shell
+    ```zsh
     $ npm install -g @angular/cli
     $ ng new my-app
     $ cd my-app 
