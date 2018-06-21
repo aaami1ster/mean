@@ -1,13 +1,13 @@
 # Angular Tutorial
 By the end of the tutorial you will be able to do the following:
 1. Use built-in Angular directives to show and hide elements and display lists of  data.
-1. Create Angular components to display hero details and show an array of heroes.
+1. Create Angular components to display employee details and show an array of employeees.
 1. Use one-way data binding for read-only data.
 1. Add editable fields to update a model with two-way data binding.
 1. Bind component methods to user events, like keystrokes and clicks.
-1. Enable users to select a hero from a master list and edit that hero in the details view. 
+1. Enable users to select a employee from a master list and edit that employee in the details view. 
 1. Format data with pipes.
-1. Create a shared service to assemble the heroes.
+1. Create a shared service to assemble the employeees.
 1. Use routing to navigate among different views and their components.
 
 # Steps
@@ -202,7 +202,7 @@ By the end of the tutorial you will be able to do the following:
      
     <div>
     ```
-1. Style the selected hero (class binding)
+1. Style the selected employee (class binding)
     ```html
     <li *ngFor="let employee of employees" 
         [class.selected]=" employee === selectedEmployee"
@@ -326,3 +326,249 @@ By the end of the tutorial you will be able to do the following:
           this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
         }
         ```
+## Routing
+
+1. Add the AppRoutingModule
+
+    An Angular best practice is to load and configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.
+
+    ```shell 
+    ng generate module app-routing --flat --module=app
+    ```
+    - --flat puts the file in src/app instead of its own folder.
+    - --module=app tells the CLI to register it in the imports array of the AppModule.
+
+    You generally don't declare components in a routing module so you can delete the @NgModule.declarations array and delete CommonModule references too.
+
+    ```typescript
+    import { NgModule } from '@angular/core';
+    import { RouterModule, Routes } from '@angular/router';
+    
+    @NgModule({
+    export: [ RouterModule ],
+    })
+    export class AppRoutingModule { }
+    ```
+1. Add routes
+
+    A typical Angular Route has two properties:
+    1. path: a string that matches the URL in the browser address bar.
+    1. component: the component that the router should create when navigating to this route.
+
+    Import the EmployeesComponent so you can reference it in a Route. Then define an array of routes with a single route to that component.
+
+    ```typescript
+    import { EmployeesComponent } from './employees/employees.component';
+    ```
+    ```typescript
+    const routes: Routes = [
+    { path: 'employees', component: EmployeesComponent }
+    ];
+    ```
+
+1. RouterModule.forRoot()
+
+    Add RouterModule to the @NgModule.imports array and configure it with the routes in one step by callingRouterModule.forRoot() within the imports array, like this:
+    ```typescript
+    imports: [RouterModule.forRoot(routes) ],
+    ```
+    The method is called forRoot() because you configure the router at the application's root level. The forRoot() method supplies the service providers and directives needed for routing, and performs the initial navigation based on the current browser URL.
+
+1. Add RouterOutlet
+
+    Open the AppComponent template replace the <app-employees> element with a <router-outlet> element.
+    ```html
+    <div style="text-align:center">
+    <h1>
+    Welcome to {{ title }}!
+    </h1>
+    </div>
+    <div>
+    <router-outlet></router-outlet>
+    </div>
+    ```
+
+1. Try it
+    ```shell
+    ng serve
+    ```
+1. Add a navigation link (routerLink)
+
+    Open AppComponent
+    ```html
+    <div style="text-align:center">
+    <h1>
+    {{ title }}!
+    </h1>
+    </div>
+    <nav>
+    <a routerLink="/employees">Employees</a>
+    </nav>
+    <router-outlet></router-outlet>
+    ```
+1. Add a dashboard view
+    ```shell
+    ng generate component dashboard
+    ```
+
+1. replace dashboard.component.html
+    ```html
+    <h3>Top Employees</h3>
+    <div class="grid grid-pad">
+    <a *ngFor="let employee of employees" class="col-1-4">
+    <div class="module employee">
+    <h4>{{employee.name}}</h4>
+    </div>
+    </a>
+    </div>
+    ```
+
+1. update dashboard.component.ts
+    ```typescript
+    import { Component, OnInit } from '@angular/core';
+    import { Employee } from '../employee';
+    import { EmployeeService } from '../employee.service';
+    
+    @Component({
+        selector: 'app-dashboard',
+        templateUrl: './dashboard.component.html',
+        styleUrls: ['./dashboard.component.css']
+    })
+    export class DashboardComponent implements OnInit {
+    employees: Employee[];
+        constructor(private employeeService: EmployeeService) { }
+        
+        ngOnInit() {
+        this.getEmployees();
+        }
+        getEmployees(): void {
+           this.employeeService.getEmployees().subscribe(employees => this.employees = employees.slice(1, 5));
+        }
+    }
+    ```
+
+1. add dashboard style 
+1. Add the dashboard route
+    ```typescript
+    import { DashboardComponent } from './dashboard/dashboard.component';
+    ```
+    ```typescript
+    { path: 'dashboard', component: DashboardComponent },
+    
+    ```
+
+1. Add a default route
+    ```typescript
+	{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    ```
+
+1. Add dashboard link to the shell
+
+    In AppComponent
+    ```html
+    <a routerLink="/dashboard">Dashboard</a>
+   ```
+
+1. Navigating to user details
+    
+    * The user should be able to get to these details in three ways.
+        1. By clicking a employee  in the dashboard.
+        2. By clicking a employee in the employees list.
+        3. By pasting a "deep link" URL into the browser address bar that identifies the employee to display.
+    * Delete employee details from EmployeesComponent
+    * Open the employeesComponent template and delete the <app-employee-detail> element from the 	bottom.
+    * Add  employee detail route
+    * In app-routing.moudle
+    ```typescript
+    import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+    ```
+    ```typescript
+    { path: 'detail/:id', component: EmployeeDetailComponent },
+    ```
+        
+    The colon (:) in the path indicates that :id is a placeholder for a specific employee id.
+    
+    * DashboardComponent employee links
+        ```html
+        <a *ngFor="let employee of employees" class="col-1-4" routerLink="/detail/{{employee.id}}">
+        ```
+        
+        You're using Angular __interpolation__ binding within the *ngFor repeater to insert the current iteration's employee.id into each routerLink.
+    
+    * EmployeesComponent employee links
+        ```html
+        <a routerLink="/detail/{{employee.id}}"> 
+              <span class="badge">{{employee.id}}</span> {{employee .name}}
+        </a>
+        ```
+
+1. Remove dead code (optional)
+
+    While the EmployeesComponent class still works, the onSelect() method 	and selectedEmployee property are no longer used.
+
+1. Routable EmployeeDetailComponent
+
+    - The EmployeeDetailComponent needs a new way to obtain the employee-to-display.
+        - Get the route that created it, 
+        - Extract the id from the route
+        - Acquire the user with that id from the server via the EmployeeService
+    
+    - Add the following imports to _employee-detail.component.ts_
+        ```typescript
+        import { ActivatedRoute } from '@angular/router';
+        import { Location } from '@angular/common';
+        
+        import { EmployeeService } from '../employee.service';
+        ```
+
+    - Inject the ActivatedRoute, EmployeeService, and Location services into the constructor, saving their values in private fields:
+        ```typescript
+        constructor(
+        private route: ActivatedRoute,
+        private employeeService: EmployeeService,
+        private location: Location) { }
+        ```
+
+        - The __ActivatedRoute__ This component is interested in the route's bag of parameters extracted from the URL. The "id" parameter is the id of the employee to display.
+        
+        - The __location__ is an Angular service for interacting with the browser. You'll use it later to navigate back to the view that navigated here.
+
+1. Extract the id route parameter
+    In _user-detail.component.ts_
+
+    ```typescript
+    ngOnInit() {
+        this.getEmployee();
+    }
+    getEmployee(): void {
+        const id = +this.route.snapshot.paramMap.get('id');
+        this.employeeService.getEmployee(id).subscribe(user => this.employee = user);
+    }
+    ```
+    - The __route.snapshot__ is a static image of the route information shortly after the component was created.
+    - The __paramMap__ is a dictionary of route parameter values extracted from the URL. The "id" key returns the id of the employee to fetch.
+    - Route parameters are always strings. The JavaScript (+) operator converts the string to a number, which is what a employee idshould be.
+
+1. Add EmployeeService.getEmployee()
+    ```typescript
+    getEmployee(id: number): Observable<Employee> {
+        return of(EMPLOYEES.find(user => user.id === id));
+    }
+    ```
+
+1. Try it
+    ```shell
+    ng serve
+    ```
+1. Find the way back
+    In user-detail.component.html
+    ```html
+    <button (click)="goBack()">go back</button>
+    ```
+
+    in user-detail.component.ts
+    ```typescript
+    goBack(): void {
+        this.location.back();
+    }
+    ```
