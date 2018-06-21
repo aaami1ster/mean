@@ -43,3 +43,8 @@ By the end of the tutorial you will be able to do the following:
 		<h1>{{ title }}</h1>
 	</div>
     ```
+## Employees 
+1. Create employees component
+	```shell
+	ng generate component employees
+	```
