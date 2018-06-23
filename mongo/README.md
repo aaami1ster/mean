@@ -3,7 +3,7 @@
 - download from mongo download page
 - install via package managers (homebrew)
 - verify installation by
-    ```
+    ```shell
     mongod -version
     ```
     
@@ -63,7 +63,7 @@
 
 1. Inserting New Data 
 
-   db is the root object of the database, which you can use to manipulate data 
+   __db__ is the root object of the database, which you can use to manipulate data 
     ```
     > db.people.insert({name: 'Abdalla Elsayed'})
    ```
@@ -94,9 +94,6 @@
     ```
     > db.people.update({name: 'Abdalla Elsayed'}, {$set: {name: 'Abdullah Elsayed', terms: 2}}) 
     ```
-    - __upsert__: a Boolean value that defaults to false. If this is true, update() will create a new document if no existing items match the query criteria. 
-    - __multi__: a Boolean value that defaults to false. If this is set to true, update() will modify all documents that match the query criteria. 
-    - __writeConcern__: a document that defines the write behavior of the update. For more information on this parameter, see the write concern documentation.1 
 1. Deleting Data 
    ```
    db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
