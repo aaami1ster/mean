@@ -141,16 +141,15 @@ useful commands
            resolve(data);
          });
        });
-       ```
- 
-    - promise’s then()
-        ```javascript
+         
+        // handling promise
         promise.then(function(result) {
           console.log(result);
         }, function(error) {
           console.error(error.message);
         });
-        ```
+       ```
+
     - Promise Chaining
         ```javascript
         promise.then(function(result) {
