@@ -23,9 +23,9 @@
     ```shell
     npm start
     ```
-
-1. Defining Routes
-    
+1. Add __Models__
+    - add _employee.js_ and _department.js_ models from previous node project
+1. Defining __Routes__
     add _routes/employee.js_
     ```javascript
     var express = require('express');
@@ -87,51 +87,10 @@
       });
     });
     module.exports = router;
-    ```
-        
+    ``` 
 1. Update package.json
     ```shell
     npm install mongoose
-    ```
-1. Add models
-    add _models/employee.js_
-    ```javascript
-    // Listing 9-2. Mongoose employee model
-    var mongoose = require('mongoose');
-    var Schema = mongoose.Schema;
-    var EmployeeSchema = new Schema({
-        id: {
-                type: Number,
-                required: true,
-                unique: true
-        },
-        name: {
-                type: String,
-                required: true
-        }, 
-        departmentId: {
-            type: Schema.Types.ObjectId,
-            ref: 'Department'
-        },
-        image: {
-            type: String,
-            default: 'images/user.png'
-        }
-    });
-    module.exports = mongoose.model('Employee', EmployeeSchema);
-    ```
-    add models/department.js
-    ```javascript
-    var mongoose = require('mongoose');
-    var Schema = mongoose.Schema;
-    var DepartmentSchema = new Schema({
-        name: {
-            type: String,
-            required: true
-        }
-    });
-    
-    module.exports = mongoose.model('Department', DepartmentSchema);
     ```
 1. Update app.js
     1. add database connection 
@@ -149,7 +108,6 @@
         require('./models/employee');
         require('./models/department');
         ```
-
     1. add routes
         ```javascript
         var employees = require('./routes/employees');
@@ -159,3 +117,7 @@
         app.use('employees', employees);
         app.use('departments', departments);
         ```
+1. try it now
+    ```shell
+    npm start
+    ```

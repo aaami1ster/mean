@@ -218,3 +218,140 @@ useful commands
         ```
     
     
+## Interacting with MongoDB Using Mongoose
+1. Adding Mongoose Models 
+```shell
+ npm install --save mongoose
+```
+1. adding models
+    - create a directory named __models__ in the root of the application 
+    - Inside the models directory, add two files: __employee.js__ and __department.js__ 
+        - The Employee Model 
+            ```javascript
+            // Listing 9-2. Mongoose employee model
+            var mongoose = require('mongoose');
+            var Schema = mongoose.Schema;
+            var EmployeeSchema = new Schema({
+                id: {
+                        type: Number,
+                        required: true,
+                        unique: true
+                }, 
+                name: {
+                        type: String,
+                        required: true
+                }, 
+                departmentId: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'Department'
+                },
+                image: {
+                    type: String,
+                    default: 'images/user.png'
+                }
+            });
+            module.exports = mongoose.model('Employee', EmployeeSchema);
+            ```
+        - The Department Model 
+            ```javascript
+            var mongoose = require('mongoose');
+            var Schema = mongoose.Schema;
+            var DepartmentSchema = new Schema({
+                name: {
+                    type: String,
+                    required: true
+                }
+            });
+            
+            module.exports = mongoose.model('Department', DepartmentSchema);
+            ```
+1. Populating the Database
+    - use studio 3T
+    - use mongoimport
+        ```shell
+        mongoimport  --collection employees --db mydb --file employees.json --jsonArray
+        ```
+        ```shell
+        mongoimport  --collection departments --db mydb --file departments.json --jsonArray
+        ```
+1. Accessing the Database
+
+    in index.js file add the following code
+    ```javascript
+    var mongoose = require('mongoose');
+    mongoose.connect('mongodb://localhost/mydb', {useMongoClient: true});
+    
+    // Close the Mongoose connection on Control+C
+    process.on('SIGINT', function () {
+        mongoose.connection.close(function () {
+            console.log('Mongoose default connection disconnected');
+            process.exit(0);
+        });
+    });
+    require('./models/employee');
+    require('./models/department');
+    ```
+    
+    update create server as follows
+    ```javascript
+    const server = http.createServer((req, res) => {
+      // A parsed url to work with in case there are parameters
+      var _url;
+      // In case the client uses lower case for methods.
+      req.method = req.method.toUpperCase();
+      console.log(req.method + ' ' + req.url);
+      if (req.method !== 'GET') {
+        res.writeHead(501, {
+          'Content-Type': 'text/plain'
+        });
+        return res.end(req.method + ' is not implemented by this ➥server.');
+      }
+      if (_url = /^\/employees$/i.exec(req.url)) {
+        Employee.find().sort('name').exec(function (error, data) {
+          console.log("get employees ...\r\n");
+          // console.log(data);
+          if (error) {
+            console.error(data.red);
+            res.writeHead(500, {
+                'Content-Type': 'text/plain'
+            });
+            return res.end(data);
+          }
+          res.writeHead(200, {
+            'Content-Type': 'application/json'
+          });
+          return res.end(JSON.stringify(data));
+        });
+    
+      } else if (_url = /^\/employees\/(\w+)$/i.exec(req.url)) {
+        // then added
+        console.log(_url[1]);
+        Employee.findById(_url[1]).populate('departmentId').exec(function (error, data) {
+          if (error) {
+            console.error(data.red);
+            res.writeHead(500, {
+                'Content-Type': 'text/plain'
+            });
+            return res.end(data);
+          }
+          if (!data) {
+            console.error("Resource not found");
+            res.writeHead(404, {
+                'Content-Type': 'text/plain'
+            });
+            return res.end('Not Found');
+            // return res.send404(res);
+          }
+          res.writeHead(200, {
+            'Content-Type': 'application/json'
+          });
+          return res.end(JSON.stringify(data));
+        });
+      }
+      else {
+        // try to send the static file
+        res.writeHead(200);
+        res.end('static file maybe');
+      }
+    });
+    ```
