@@ -1,32 +1,40 @@
-# Introduction to Express
-## Generating an Express App
-1. install express
-    ```shell
-    npm install express-generator -g
-    ```
-1. create new project
-    ```shell
-    express --view=pug myapp
-    ```
-1. install dependencies
-    ```shell
-    cd myapp
-    ```
-    ```shell
-    npm install
-    ```
-1. Starting the Server 
-    ```shell
-    node bin/www 
-    ```
-    or 
-    ```shell
-    npm start
-    ```
-1. Add __Models__
-    - add _employee.js_ and _department.js_ models from previous node project
-1. Defining __Routes__
-    add _routes/employee.js_
+# Table of Contents
+1. [Install Express](#install-express)
+1. [create new project](#create-new-project)
+1. [install dependencies](#install-dependencies)
+1. [Starting the Server](#starting-the-server)
+1. [Defining Models](#defining-models)
+1. [Defining Routes](#defining-routes)
+1. [Update package.json](#update-packagejson)
+1. [Update app.js](#update-appjs)
+
+# Install Express
+```shell
+npm install express-generator -g
+```
+# create new project
+```shell
+express --view=pug myapp
+```
+# install dependencies
+```shell
+cd myapp
+```
+```shell
+npm install
+```
+# Starting the Server 
+```shell
+node bin/www 
+```
+or 
+```shell
+npm start
+```
+# Defining __Models__
+- add _employee.js_ and _department.js_ models from previous node project
+# Defining __Routes__
+- add _routes/employee.js_
     ```javascript
     var express = require('express');
     var mongoose = require('mongoose');
@@ -67,7 +75,7 @@
     });
     module.exports = router;
     ```
-    add _routes/department.js_
+- add _routes/department.js_
     ```javascript
     var express = require('express');
     var mongoose = require('mongoose');
@@ -88,35 +96,35 @@
     });
     module.exports = router;
     ``` 
-1. Update package.json
-    ```shell
-    npm install mongoose
-    ```
-1. Update app.js
-    1. add database connection 
-        ```javascript
-        var mongoose = require('mongoose');
-        mongoose.connect('mongodb://localhost/mydb');
-        
-        // Close the Mongoose connection on Control+C
-        process.on('SIGINT', function () {
-            mongoose.connection.close(function () {
-                console.log('Mongoose default connection disconnected');
-                process.exit(0);
-            });
+# Update package.json
+```shell
+npm install mongoose
+```
+# Update app.js
+1. add database connection 
+    ```javascript
+    var mongoose = require('mongoose');
+    mongoose.connect('mongodb://localhost/mydb');
+    
+    // Close the Mongoose connection on Control+C
+    process.on('SIGINT', function () {
+        mongoose.connection.close(function () {
+            console.log('Mongoose default connection disconnected');
+            process.exit(0);
         });
-        require('./models/employee');
-        require('./models/department');
-        ```
-    1. add routes
-        ```javascript
-        var employees = require('./routes/employees');
-        var teams = require('./routes/teams');
-        
-        // application routes
-        app.use('employees', employees);
-        app.use('departments', departments);
-        ```
+    });
+    require('./models/employee');
+    require('./models/department');
+    ```
+1. add routes
+    ```javascript
+    var employees = require('./routes/employees');
+    var teams = require('./routes/teams');
+    
+    // application routes
+    app.use('employees', employees);
+    app.use('departments', departments);
+    ```
 1. try it now
     ```shell
     npm start
