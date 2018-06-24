@@ -1,6 +1,6 @@
 # Table of Contents
 1. [Installing Node.js](#installing-nodejs)
-1. [REPL (Read-Eval-Print Loop)](#repl-(read-eval-print-loop))
+1. [REPL (Read-Eval-Print Loop)](#repl-read-eval-print-loop)
 1. [Your First Node.js Server](#your-first-nodejs-server)
 1. [npm](#npm)
 1. [Writing Module](#writing-module)
