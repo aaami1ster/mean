@@ -1,5 +1,8 @@
-# Introduction to MongoDB
-## Installing MongoDB Locally 
+# Table of Contents
+1. [Installing MongoDB Locally](#installing-mongodb-locally)
+1. [The MongoDB Shell](#the-mongodb-shell)
+
+# Installing MongoDB Locally 
 - download from mongo download page
 - install via package managers (homebrew)
 - verify installation by
@@ -7,7 +10,7 @@
     mongod -version
     ```
     
-## The MongoDB Shell 
+# The MongoDB Shell 
 1. Connecting to MongoDB 
     ```
     mongo
