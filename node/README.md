@@ -1,5 +1,9 @@
-# Your First Node.js Server
-## Installing Node.js
+# Table of Contents
+1. [Installing Node.js](#Installing-Node.js)
+2. [Your First Node.js Server](#Your-First-Node.js-Server)
+3. [npm](#npm)
+
+# Installing Node.js
 1. download LTS version from the [Node.js website](https://nodejs.org/en/)
 1. open a terminal and type 
     ```shell
@@ -12,9 +16,8 @@
         - Open terminal, type node and press enter. 
         - The terminal input character will change to >
 
-1. Writing The Server
-    
-    Create a file named "app.js", and paste the following code:
+# Your First Node.js Server
+1. Create a file named "app.js", and paste the following code:
     ```javascript
     const http = require('http');
     
@@ -39,7 +42,7 @@
 
     You will see a message 'Hello World'
     
-## npm
+# npm
 useful commands
 1. __npm install__ simply executing npm install will install all the modules listed in the __package.json__ file in the current directory. 
 1. Global versus Local Installations 
@@ -60,7 +63,7 @@ useful commands
         npm docs markdown 
     ```
     
-## Writing Module
+# Writing Module
 1. Save the code bellow in a file called _myfirstmodule.js_
     ```javascript
     exports.myDateTime = function () {
@@ -73,7 +76,7 @@ useful commands
     ```
     
     
-## Asynchronous Coding
+# Asynchronous Coding
 1. Callback Functions
     ```javascript
     var fs = require('fs');
@@ -161,7 +164,7 @@ useful commands
         ```
         You can also use the catch() method to handle rejections in a promise chain. 
         
-## Core Modules
+# Core Modules
 1. Command Line Arguments
     - All command line arguments passed to a Node application are available via the process.argv array.
     - The first two elements of this array are the node executable, followed by the name of the invoked JavaScript file. This means that the actual application arguments begin at process.argv[2] 
@@ -218,7 +221,7 @@ useful commands
         ```
     
     
-## Interacting with MongoDB Using Mongoose
+# Interacting with MongoDB Using Mongoose
 1. Adding Mongoose Models 
 ```shell
  npm install --save mongoose
