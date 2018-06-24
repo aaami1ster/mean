@@ -1,6 +1,6 @@
 # Table of Contents
-1. [Installing Node.js](#Installing-Node.js)
-2. [Your First Node.js Server](#Your-First-Node.js-Server)
+1. [Installing Node.js](#installing-node.js)
+2. [Your First Node.js Server](#your-first-node.js-server)
 3. [npm](#npm)
 
 # Installing Node.js
