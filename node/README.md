@@ -1,5 +1,6 @@
 # Table of Contents
 1. [Installing Node.js](#installing-nodejs)
+1. [REPL (Read-Eval-Print Loop)](#repl-(read-eval-print-loop))
 1. [Your First Node.js Server](#your-first-nodejs-server)
 1. [npm](#npm)
 1. [Writing Module](#writing-module)
@@ -13,12 +14,15 @@
     ```shell
     node -v
     ```
-1. REPL (Read-Eval-Print Loop)
-    - REPL Gives you a JavaScript sandbox to play in. 
-    - It can be treated as a Node.js script file, and all the usual functions and modules are available in this environment 
-    - Launching:
-        - Open terminal, type node and press enter. 
-        - The terminal input character will change to >
+# REPL (Read-Eval-Print Loop)
+- REPL Gives you a JavaScript sandbox to play in. 
+- It can be treated as a Node.js script file, and all the usual functions and modules are available in this environment 
+- Launching:
+    - Open terminal and type 
+        ```shell
+        node 
+        ```
+    - Press Enter. The terminal input character will change to >
 
 # Your First Node.js Server
 1. Create a file named "app.js", and paste the following code:
