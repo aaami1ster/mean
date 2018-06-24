@@ -1,3 +1,13 @@
+# Table of Contents
+1. [Angular Tutorial](#angular-tutorial)
+1. [Create New Angular app Using Angular CLI](#create-new-angular-app-using-angular-cli)
+1. [Edit Employees](#edit-employees )
+1. [Display employees list](#display-employees-list)
+1. [Master/Detail Components](#masterdetail-components)
+1. [Employee Services](#employee-services)
+1. [Routing](#routing)
+1. [HTTP](#http)
+
 # Angular Tutorial
 By the end of the tutorial you will be able to do the following:
 1. Use built-in Angular directives to show and hide elements and display lists of  data.
@@ -10,7 +20,7 @@ By the end of the tutorial you will be able to do the following:
 1. Create a shared service to assemble the employeees.
 1. Use routing to navigate among different views and their components.
 
-# Steps
+# Create New Angular app Using Angular CLI
 
 1. Install the Angular CLI globally
 
@@ -40,7 +50,7 @@ By the end of the tutorial you will be able to do the following:
        <h1>{{ title }}</h1>
 	</div>
     ```
-## Edit Employees 
+# Edit Employees 
 1. Create employees component
 	```shell
 	ng generate component employees
@@ -120,7 +130,7 @@ By the end of the tutorial you will be able to do the following:
     ],
     ```
     
-## Display employees list
+# Display employees list
 1. Create mock
    
     Create a file called _mock-employees.ts_ in the _src/app_ folder. Define a EMPLOYEES constant as an array of ten employees and export it.
@@ -209,7 +219,7 @@ By the end of the tutorial you will be able to do the following:
         (click)="onSelect(employee)">
     ```
     
-## Master/Detail Components
+# Master/Detail Components
 1. Create the EmployeeDetailComponent
     ```shell
     ng generate component employee-detail
@@ -251,7 +261,7 @@ By the end of the tutorial you will be able to do the following:
     [employee]="selectedEmployee" is an Angular **property binding**.
     
     
-## Employee Services
+# Employee Services
 1. Create the EmployeeService
     ```shell
     ng generate service employee
@@ -326,7 +336,7 @@ By the end of the tutorial you will be able to do the following:
           this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
         }
         ```
-## Routing
+# Routing
 
 1. Add the AppRoutingModule
 
@@ -573,7 +583,7 @@ By the end of the tutorial you will be able to do the following:
     }
     ```
 
-## HTTP
+# HTTP
 
 1. Enable HTTP services
     - HttpClient is Angular's mechanism for communicating with a remote server over HTTP. 
