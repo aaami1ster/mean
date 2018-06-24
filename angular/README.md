@@ -588,10 +588,9 @@ By the end of the tutorial you will be able to do the following:
 1. Enable HTTP services
     - HttpClient is Angular's mechanism for communicating with a remote server over HTTP. 
     - To make HttpClient available everywhere in the app, open the root AppModule:
+        - import the HttpClientModule symbol from @angular/common/http,
+        - add it to the @NgModule.imports array.
         ```typescript
-        import the HttpClientModule symbol from @angular/common/http,
-        add it to the @NgModule.imports array.
-        
         import { HttpClientModule } from '@angular/common/http';
         ....
         
