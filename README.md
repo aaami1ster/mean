@@ -11,7 +11,7 @@ There are several MEAN stack boilerplates in existence, but this training doesnâ
 
 Itâ€™s better to understand all the technologies independently rather than expect all applications to follow a single format.
 
-# What willYou learn?
+# What will You learn?
 1. Build full stack applications in JavaScript using the MEAN technologies
 1. Design and build RESTful APIs using Node.js, Express and MongoDB
     - Run Node on your local machine and download modules using npm. 
