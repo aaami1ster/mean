@@ -30,9 +30,9 @@ It’s better to understand all the technologies independently rather than expec
 1. You should be familiar with HTML, CSS and JavaScript
 	You will need a computer on which you have the rights to install new software
 1. Software requirements:
-    1. __Git__ - Download & Install Git.
-	1. __Node.js__ - Download & Install Node.js  and the npm package manager. 
-	1. __MongoDB__ -  Download & Install MongoDB, and make sure it's running on the default port (27017).
+    1. __Git__ - [Download & Install Git](https://git-scm.com/downloads).
+	1. __Node.js__ - [Download & Install Node.js](https://nodejs.org/en/download/)  and the npm package manager. 
+	1. __MongoDB__ -  [Download & Install MongoDB](www.mongodb.org/downloads), and make sure it's running on the default port (27017).
 	1. __Text Editor__ (like Sublime Text or VS code) or IDE (like Webstorm)
 1. Internet connection
 
