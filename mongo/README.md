@@ -1,20 +1,35 @@
 # Table of Contents
 1. [Installing MongoDB Locally](#installing-mongodb-locally)
 1. [The MongoDB Shell](#the-mongodb-shell)
+    1. [Connecting to MongoDB](#connecting-to-mongodb)
+    1. [Database](#database)
+    1. [Collections](#collections)
+    1. [CRUD Operations](#crud-operations)
 
 # Installing MongoDB Locally 
-- download from mongo download page
-- install via package managers (homebrew)
+- Follow step to download and install the latest stable release from [mongo download page](https://www.mongodb.com/download-center?#community)
 - verify installation by
     ```shell
     mongod -version
     ```
+    ```b version v3.4.10
+     git version: 078f28920cb24de0dd479b5ea6c66c644f6326e9
+     OpenSSL version: OpenSSL 1.0.2n  7 Dec 2017
+     allocator: system
+     modules: none
+     build environment:
+         distarch: x86_64
+         target_arch: x86_64
+     ```
+
     
 # The MongoDB Shell 
-1. Connecting to MongoDB 
-    ```
-    mongo
-    ```
+
+## Connecting to MongoDB 
+```
+mongo
+```
+## Database
 1. List dbs
     ```
     show dbs
@@ -31,6 +46,7 @@
     ```
     db.dropDatabase()
     ```
+## Collections
 1. Show current db collections
     ```
     show collections
@@ -47,6 +63,10 @@
     ```
     db.<collection-name>.drop()
     ```
+    ```
+   db.people.drop()
+   ```
+# CRUD Operations
 1. Insert new data
     ```
     db.<collection-name>.insert(object)
@@ -100,8 +120,4 @@
 1. Deleting Data 
    ```
    db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
-   ```
-1. Deleting Collections 
-    ```
-   db.people.drop()
    ```
