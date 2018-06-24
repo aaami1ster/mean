@@ -34,7 +34,6 @@ It’s better to understand all the technologies independently rather than expec
 	1. __Node.js__ - [Download & Install Node.js](https://nodejs.org/en/download/)  and the npm package manager. 
 	1. __MongoDB__ -  [Download & Install MongoDB](www.mongodb.org/downloads), and make sure it's running on the default port (27017).
 	1. __Text Editor__ (like Sublime Text or VS code) or IDE (like Webstorm)
-1. Internet connection
 
 # Tutorial Example
 - The example is Human Resources (HR) Application that can be used for tracking employees and departments in a small- to medium-sized company. 
