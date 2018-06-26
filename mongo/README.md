@@ -25,10 +25,13 @@
     
 # The MongoDB Shell 
 
-## Connecting to MongoDB 
-```
-mongo
-```
+## Connecting to MongoDB
+- Open terminal and type
+    ```shell
+    mongo
+    ```
+- Press Enter. The terminal input character will change to > (this is the mongodb shell)
+
 ## Database
 1. List dbs
     ```
