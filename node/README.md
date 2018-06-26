@@ -14,6 +14,11 @@
     ```shell
     node -v
     ```
+    
+    this will get node version
+    ```
+    v8.9.4
+    ```
 # REPL (Read-Eval-Print Loop)
 - REPL Gives you a JavaScript sandbox to play in. 
 - It can be treated as a Node.js script file, and all the usual functions and modules are available in this environment 
