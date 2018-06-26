@@ -39,7 +39,7 @@ mongo
     > db
     ```
 1. Open existing/create new db
-    > use <db-name>
+    > use \<db-name\>
     ```
     > use mydb
     ```
@@ -53,20 +53,20 @@ mongo
     > show collections
     ```
 1. List collection records
-    > db.<collection-name>.find()
+    > db.\<collection-name\>.find()
     
     ```
     db.people.find()
     ```
     
 1. Delete collection
-    > db.<collection-name>.drop()
+    > db.\<collection-name\>.drop()
     ```
    db.people.drop()
    ```
 # CRUD Operations
 1. Insert new data
-    > db.<collection-name>.insert(object)
+    > db.\<collection-name\>.insert(object)
   
     ```
     > db.people.insert({name: 'Abdalla Elsayed'})
@@ -79,7 +79,7 @@ mongo
     - Multiple items can be added in one insert() call by passing in an array of objects 
    
 1. Retrieving data
-    > db.<collection-name>.find(query, projection)
+    > db.\<collection-name\>.find(query, projection)
     ```
     > db.people.find() 
     ```
@@ -94,7 +94,7 @@ mongo
     ```
        
 1. Updating data
-    > db.<collection-name>.update(query, update, options)
+    > db.\<collection-name\>.update(query, update, options)
     ```
     > db.people.update({name: 'Abdalla Elsayed'}, {$set: {name: 'Abdullah Elsayed'}}) 
     ```
@@ -102,7 +102,7 @@ mongo
     > db.people.update({name: 'Abdalla Elsayed'}, {$set: {name: 'Abdullah Elsayed', terms: 2}}) 
     ```
 1. Deleting data
-    > db.<collection-name>.remove(query, justOne)
+    > db.\<collection-name\>.remove(query, justOne)
     ```
    > db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
    ```
