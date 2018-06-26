@@ -1,10 +1,12 @@
 # Table of Contents
 1. [Installing MongoDB Locally](#installing-mongodb-locally)
-1. [The MongoDB Shell](#the-mongodb-shell)
-    1. [Connecting to MongoDB](#connecting-to-mongodb)
-    1. [Database](#database)
-    1. [Collections](#collections)
-    1. [CRUD Operations](#crud-operations)
+1. [The Mongo Shell](#the-mongo-shell)
+    1. [Start the mongo Shell](#start-the-mongo-shell)
+    1. [Working with the mongo Shell](#working-with-the-mongo-shell)
+        1. [Database](#database)
+        1. [Collections](#collections)
+        1. [CRUD Operations](#crud-operations)
+    1. [Exit the Shell](#exit-the-shell)
 
 # Installing MongoDB Locally 
 - Follow step to download and install the latest stable release from [mongo download page](https://www.mongodb.com/download-center?#community)
@@ -40,7 +42,7 @@
     ```
     > show dbs
     ```
-1. Show current db
+1. To display the database you are using, type db
     ```
     > db
     ```
@@ -112,6 +114,7 @@
     ```
    > db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
    ```
-
+## Exit the Shell
+To exit the shell, type quit() or use the <Ctrl-C> shortcut.
 
    
