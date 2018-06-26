@@ -32,71 +32,54 @@ mongo
 ## Database
 1. List dbs
     ```
-    show dbs
+    > show dbs
     ```
 1. Show current db
     ```
-    db
+    > db
     ```
 1. Open existing/create new db
+    > use <db-name>
     ```
-    use <db-name>
+    > use mydb
     ```
 1. Drop current db
     ```
-    db.dropDatabase()
+    > db.dropDatabase()
     ```
 ## Collections
 1. Show current db collections
     ```
-    show collections
+    > show collections
     ```
 1. List collection records
+    > db.<collection-name>.find()
+    
     ```
-    db.<collection-name>.find()
+    db.people.find()
     ```
-1. List collection indexes
-    ```
-    db.<collection-name>.getIndexes()
-    ```
+    
 1. Delete collection
-    ```
-    db.<collection-name>.drop()
-    ```
+    > db.<collection-name>.drop()
     ```
    db.people.drop()
    ```
 # CRUD Operations
 1. Insert new data
-    ```
-    db.<collection-name>.insert(object)
-    ```
-1. Retrieving data
-    ```
-    db.<collection-name>.find(query, projection)
-    ```
-1. Updating data
-    ```
-    db.<collection-name>.update(query, update, options)
-    ```
-1. Deleting data
-    ```
-    db.<collection-name>.remove(query, justOne)
-    ```
-
-1. Inserting New Data 
-
-   __db__ is the root object of the database, which you can use to manipulate data 
+    > db.<collection-name>.insert(object)
+  
     ```
     > db.people.insert({name: 'Abdalla Elsayed'})
    ```
    ```
     > db.people.insert([{name: 'Abdulrahman'},{name: 'MOhammed'}])
     ```
-   - This command adds the object {name: 'Abdalla Elsayed'} to the people collection of the mydb database. Since the mydb database doesn’t technically exist yet, Mongo creates it now 
-   - Multiple items can be added in one insert() call by passing in an array of objects 
+    - __db__ is the root object of the database, which you can use to manipulate data 
+    - This command adds the object {name: 'Abdalla Elsayed'} to the people collection of the mydb database. Since the mydb database doesn’t technically exist yet, Mongo creates it now 
+    - Multiple items can be added in one insert() call by passing in an array of objects 
    
-1. Retrieving Data 
+1. Retrieving data
+    > db.<collection-name>.find(query, projection)
     ```
     > db.people.find() 
     ```
@@ -109,15 +92,20 @@ mongo
     ```
     > db.people.find().limit(2); 
     ```
-   
-1. Updating Data 
+       
+1. Updating data
+    > db.<collection-name>.update(query, update, options)
     ```
     > db.people.update({name: 'Abdalla Elsayed'}, {$set: {name: 'Abdullah Elsayed'}}) 
     ```
     ```
     > db.people.update({name: 'Abdalla Elsayed'}, {$set: {name: 'Abdullah Elsayed', terms: 2}}) 
     ```
-1. Deleting Data 
+1. Deleting data
+    > db.<collection-name>.remove(query, justOne)
+    ```
+   > db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
    ```
-   db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
-   ```
+
+
+   
