@@ -58,7 +58,6 @@
 # npm
 useful commands
 1. __npm install__ simply executing npm install will install all the modules listed in the __package.json__ file in the current directory. 
-1. Global versus Local Installations 
     ```shell
     npm install
     ```
