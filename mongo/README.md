@@ -119,4 +119,60 @@ The most important shell methods are list bellow. Find the full list of methods 
 ## Exit the Shell
 To exit the shell, type quit() or use the \<Ctrl-C\> shortcut.
 
-   
+# MongoDB Package Components
+## Core Processes
+The core components in the MongoDB package are: 
+1. __mongod__ the core database process. 
+1. __mongos__ the controller and query router for sharded clusters. 
+1. __mongo__ the interactive MongoDB Shell.
+## Binary Import and Export Tools
+1. [mongodump](https://docs.mongodb.com/manual/reference/program/mongodump/)
+    - provides a method for creating BSON dump files from the mongod instances
+1. [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/)
+    - makes it possible to restore these dumps. 
+1. [bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/)
+    - converts BSON dump files into JSON.
+## Data Import and Export Tools
+1. [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/#bin.mongoimport) 
+    - provides a method for taking data in JSON, CSV, or TSV and importing it into a mongod instance.
+    - Run mongoimport from the system command line, not the mongo shell.
+    - Use
+        - imports the JSON data from the contacts.json file into the collection contacts in the users database.
+        ```shell
+        mongoimport --db users --collection contacts --file contacts.json
+        ```
+        - imports the csv formatted data in the /opt/backups/contacts.csv file into the collection contacts in the users database on the MongoDB instance running on the localhost port numbered 27017.
+            ```shell
+            mongoimport --db users --collection contacts --type csv --headerline --file /opt/backups/contacts.csv
+            ```
+            - mongoimport uses the input file name, without the extension, as the collection name if -c or --collection is unspecified
+1. [mongoexport](https://docs.mongodb.com/manual/reference/program/mongoexport/#bin.mongoexport) 
+    - provides a method to export data from a mongod instance into JSON, CSV, or TSV.
+    - Run mongoexport from the system command line, not the mongo shell.
+    - Use
+        - Export in CSV Format
+            > When you export in CSV format, you must specify the fields in the documents to export. The operation specifies the name and address fields to export.
+            ```shell
+            mongoexport --db users --collection contacts --type=csv --fields name,address --out /opt/backups/contacts.csv
+            ```
+        - Export in JSON Format
+            ```shell
+            mongoexport --db sales --collection contacts --out contacts.json
+            ```
+## Diagnostic Tools
+1. [mongostat](https://docs.mongodb.com/manual/reference/program/mongostat/#bin.mongostat)
+    - provides a quick overview of the status of a currently running mongod or mongos instance
+    - similar to the UNIX/Linux file system utility vmstat, but provides data regarding mongod and mongos instances
+    - Run mongostat from the system command line, not the mongo shell.
+    ```shell
+    mongostat
+    ```
+    - For more information about monitoring MongoDB, see [Monitoring for MongoDB](https://docs.mongodb.com/manual/administration/monitoring/).
+1. [mongotop](https://docs.mongodb.com/manual/reference/program/mongotop/#bin.mongotop) 
+    - provides a method to track the amount of time a MongoDB instance spends reading and writing data
+    - provides statistics on a per-collection level
+    - To force mongotop to return less frequently specify a number, in seconds at the end of the command
+    - Run mongotop from the system command line, not the mongo shell.
+    ```shell
+    mongotop 15
+    ```
