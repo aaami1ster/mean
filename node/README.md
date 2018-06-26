@@ -14,6 +14,11 @@
     ```shell
     node -v
     ```
+    
+    this will get node version
+    ```
+    v8.9.4
+    ```
 # REPL (Read-Eval-Print Loop)
 - REPL Gives you a JavaScript sandbox to play in. 
 - It can be treated as a Node.js script file, and all the usual functions and modules are available in this environment 
@@ -53,7 +58,6 @@
 # npm
 useful commands
 1. __npm install__ simply executing npm install will install all the modules listed in the __package.json__ file in the current directory. 
-1. Global versus Local Installations 
     ```shell
     npm install
     ```
