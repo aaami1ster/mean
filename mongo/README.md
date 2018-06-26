@@ -34,6 +34,7 @@
     ```shell
     mongo
     ```
+    > Make Sure you have added the \<mongodb installation dir\>/bin to the PATH environment variable
 - Press Enter. The terminal input character will change to > (this is the mongodb shell)
 
 ## Working with the mongo Shell
