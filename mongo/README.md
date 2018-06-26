@@ -115,6 +115,6 @@
    > db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
    ```
 ## Exit the Shell
-To exit the shell, type quit() or use the <Ctrl-C> shortcut.
+To exit the shell, type quit() or use the \<Ctrl-C\> shortcut.
 
    
