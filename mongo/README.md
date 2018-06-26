@@ -9,7 +9,7 @@
     1. [Exit the Shell](#exit-the-shell)
 
 # Installing MongoDB Locally 
-- Follow step to download and install the latest stable release from [mongo download page](https://www.mongodb.com/download-center?#community)
+- Follow step to download and install the latest stable release from [Install MongoDB Tutorial](https://docs.mongodb.com/manual/installation/#tutorial-installation)
 - verify installation by
     ```shell
     mongod -version
@@ -73,8 +73,8 @@
     ```
    db.people.drop()
    ```
-### CRUD Operations
-1. Insert new data
+### [CRUD Operations](https://docs.mongodb.com/manual/crud/)
+1. Insert Documents
     > db.\<collection-name\>.insert(object)
   
     ```
@@ -87,7 +87,7 @@
     - This command adds the object {name: 'Abdalla Elsayed'} to the people collection of the mydb database. Since the mydb database doesn’t technically exist yet, Mongo creates it now 
     - Multiple items can be added in one insert() call by passing in an array of objects 
    
-1. Retrieving data
+1. Query Documents
     > db.\<collection-name\>.find(query, projection)
     ```
     > db.people.find() 
@@ -102,7 +102,7 @@
     > db.people.find().limit(2); 
     ```
        
-1. Updating data
+1. Update Documents
     > db.\<collection-name\>.update(query, update, options)
     ```
     > db.people.update({name: 'Abdalla Elsayed'}, {$set: {name: 'Abdullah Elsayed'}}) 
@@ -110,7 +110,7 @@
     ```
     > db.people.update({name: 'Abdalla Elsayed'}, {$set: {name: 'Abdullah Elsayed', terms: 2}}) 
     ```
-1. Deleting data
+1. Delete Documents
     > db.\<collection-name\>.remove(query, justOne)
     ```
    > db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
