@@ -23,16 +23,19 @@
      ```
 
     
-# The MongoDB Shell 
+# The Mongo Shell
+- The mongo shell is an interactive JavaScript interface to MongoDB. 
+- You can use the mongo shell to query and update data as well as perform administrative operations.
 
-## Connecting to MongoDB
+## Start the mongo Shell
 - Open terminal and type
     ```shell
     mongo
     ```
 - Press Enter. The terminal input character will change to > (this is the mongodb shell)
 
-## Database
+## Working with the mongo Shell
+### Database
 1. List dbs
     ```
     > show dbs
@@ -50,7 +53,7 @@
     ```
     > db.dropDatabase()
     ```
-## Collections
+### Collections
 1. Show current db collections
     ```
     > show collections
@@ -67,7 +70,7 @@
     ```
    db.people.drop()
    ```
-# CRUD Operations
+### CRUD Operations
 1. Insert new data
     > db.\<collection-name\>.insert(object)
   
