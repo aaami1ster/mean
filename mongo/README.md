@@ -38,6 +38,7 @@
 - Press Enter. The terminal input character will change to > (this is the mongodb shell)
 
 ## Working with the mongo Shell
+The most important shell methods are list bellow. Find the full list of methods in [The mongo Shell Methods](https://docs.mongodb.com/manual/reference/method/) page.
 ### Database
 1. List dbs
     ```
