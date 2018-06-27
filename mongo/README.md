@@ -7,6 +7,12 @@
         1. [Collections](#collections)
         1. [CRUD Operations](#crud-operations)
     1. [Exit the Shell](#exit-the-shell)
+1. [MongoDB Package Components](#mongodb-package-components)
+    1. [Core Processes](#core-processes)
+    1. [Binary Import and Export Tools](#binary-import-and-export-tools)
+    1. [Data Import and Export Tools](#data-import-and-export-tools)
+    1. [Diagnostic Tools](#diagnostic-tools)
+
 
 # Installing MongoDB Locally 
 - Follow step to download and install the latest stable release from [Install MongoDB Tutorial](https://docs.mongodb.com/manual/installation/#tutorial-installation)
@@ -138,9 +144,9 @@ The core components in the MongoDB package are:
     - Run mongoimport from the system command line, not the mongo shell.
     - Use
         - imports the JSON data from the contacts.json file into the collection contacts in the users database.
-        ```shell
-        mongoimport --db users --collection contacts --file contacts.json
-        ```
+            ```shell
+            mongoimport --db users --collection contacts --file contacts.json
+            ```
         - imports the csv formatted data in the /opt/backups/contacts.csv file into the collection contacts in the users database on the MongoDB instance running on the localhost port numbered 27017.
             ```shell
             mongoimport --db users --collection contacts --type csv --headerline --file /opt/backups/contacts.csv
