@@ -8,10 +8,10 @@
 1. [Core Modules](#core-modules)
 1. [Interacting with MongoDB Using Mongoose](#interacting-with-mongodb-using-mongoose)
 
-# Installing Node.js
+# Install Node.js
 1. download LTS version from the [Node.js website](https://nodejs.org/en/)
 1. open a terminal and type 
-    ```shell
+    ```bash
     node -v
     ```
     
@@ -24,7 +24,7 @@
 - It can be treated as a Node.js script file, and all the usual functions and modules are available in this environment 
 - Launching:
     - Open terminal and type 
-        ```shell
+        ```bash
         node 
         ```
     - Press Enter. The terminal input character will change to >
@@ -48,30 +48,40 @@
     });
     ```
 1. After that, run your web server using 
-    ```shell
+    ```bash
     node app.js
     ```
 1. Visit __[http://localhost:3000](http://localhost:3000)__
 
-    You will see a message 'Hello World'
+    You will see a message `Hello World`
     
 # npm
-useful commands
-1. __npm install__ simply executing npm install will install all the modules listed in the __package.json__ file in the current directory. 
-    ```shell
+npm is the node package manager. bellow most useful commands are listed
+1. Install all the modules listed in the __package.json__ file in the current directory. 
+    ```bash
     npm install
     ```
-1. __npm install < name >__ tries to install the most recent version of the module <name> into the local node_modules folder. 
-1. Global versus Local Installations 
-    ```shell
+1. List the installed packages on your project
+    ```bash
+    npm list --depth=0
+    ```
+1. Install the most recent version of the module <name> into the local node_modules folder. 
+    > npm install  \<name>
+    ```bash
+    npm search jasmine 
+    ```
+    Add `-g` or `-global` for global installation
+    ```bash
     npm install express-generator –global
     ```
-1. __npm search <name>__
-    ```shell
+1. Search for module in npm registry (by name)
+    > npm search \<name>
+    ```bash
         npm search markdown 
     ```
-1. __npm docs < name >__
-    ```shell
+1. View module documentation
+    > npm docs \<name>
+    ```bash
         npm docs markdown 
     ```
     
@@ -235,7 +245,7 @@ useful commands
     
 # Interacting with MongoDB Using Mongoose
 1. Adding Mongoose Models 
-```shell
+```bash
  npm install --save mongoose
 ```
 1. adding models
@@ -283,10 +293,10 @@ useful commands
 1. Populating the Database
     - use studio 3T
     - use mongoimport
-        ```shell
+        ```bash
         mongoimport  --collection employees --db mydb --file employees.json --jsonArray
         ```
-        ```shell
+        ```bash
         mongoimport  --collection departments --db mydb --file departments.json --jsonArray
         ```
 1. Accessing the Database
