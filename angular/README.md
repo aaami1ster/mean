@@ -330,6 +330,15 @@ By the end of the tutorial you will be able to do the following:
         import { Observable } from 'rxjs/Observable';
         import { of } from 'rxjs/observable/of';
         ``` 
+        
+    - In angular 6 you can face the following error
+    
+        `
+        ERROR in ./src/app/shared/services/generics.service.ts
+        Module not found: Error: Can't resolve 'rxjs/observable/of' in '/Users/abdalla/projects/drugs/apps/web/admin-panel/src/app/shared/services'
+        `
+        - solution:
+            It looks like rxjs-compat is missing. Use `npm i rxjs-compat` to install the missing rxjs-compat.
     - Subscribe in EmployeesComponent: Change the getEmployees to
         ```typescript
         getEmployees(): void {
@@ -638,3 +647,57 @@ By the end of the tutorial you will be able to do the following:
     }
     ```
 
+
+# Binding
+1. How can I get new selection in “select” in Angular 2?
+    
+    If you don't need two-way data-binding:
+    ```html
+    <select (change)="onChange($event.target.value)">
+        <option *ngFor="let i of devices">{{i}}</option>
+    </select>
+    ```
+    ```javascript
+    
+    onChange(deviceValue) {
+        console.log(deviceValue);
+    }
+    ```
+
+    For two-way data-binding, separate the event and property bindings:
+    ```html
+
+    <select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
+        <option [value]="i" *ngFor="let i of devices">{{i}}</option>
+    </select>
+    ```
+    ```javascript
+    export class AppComponent {
+      devices = 'one two three'.split(' ');
+      selectedDevice = 'two';
+      onChange(newValue) {
+        console.log(newValue);
+        this.selectedDevice = newValue;
+        // ... do other stuff here ...
+    }
+    ```
+    If devices is array of objects, bind to ngValue instead of value:
+    ```html
+    <select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel3">
+      <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
+    </select>
+    {{selectedDeviceObj | json}}
+    ```
+    ```javascript
+    
+    
+    export class AppComponent {
+      deviceObjects = [{name: 1}, {name: 2}, {name: 3}];
+      selectedDeviceObj = this.deviceObjects[1];
+      onChangeObj(newObj) {
+        console.log(newObj);
+        this.selectedDeviceObj = newObj;
+        // ... do other stuff here ...
+      }
+    }
+    ```
