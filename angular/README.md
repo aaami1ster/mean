@@ -332,11 +332,12 @@ By the end of the tutorial you will be able to do the following:
         ``` 
         
     - In angular 6 you can face the following error
-    
-        `
-        ERROR in ./src/app/shared/services/generics.service.ts
-        Module not found: Error: Can't resolve 'rxjs/observable/of' in '/Users/abdalla/projects/drugs/apps/web/admin-panel/src/app/shared/services'
-        `
+        ``` 
+        ERROR in node_modules/rxjs/Observable.d.ts(1,15): error TS2307: Cannot find module 'rxjs-compat/Observable'.
+                 node_modules/rxjs/observable/of.d.ts(1,15): error TS2307: Cannot find module 'rxjs-compat/observable/of'.
+                 src/app/shared/services/generics.service.ts(2,10): error TS2305: Module '"//node_modules/rxjs/Observable"' has no exported member 'Observable'.
+                 src/app/shared/services/generics.service.ts(3,10): error TS2305: Module '"//node_modules/rxjs/observable/of"' has no exported member 'of'.
+        ```
         - solution:
             It looks like rxjs-compat is missing. Use `npm i rxjs-compat` to install the missing rxjs-compat.
     - Subscribe in EmployeesComponent: Change the getEmployees to
