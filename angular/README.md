@@ -7,6 +7,10 @@
 1. [Employee Services](#employee-services)
 1. [Routing](#routing)
 1. [HTTP](#http)
+1. [Appendixes](#appendixes)
+    1. [Binding](#binding)
+    1. [Pipes](#pipes)
+    1. [Deployment](#deployment)
 
 # Angular Tutorial
 By the end of the tutorial you will be able to do the following:
@@ -648,8 +652,8 @@ By the end of the tutorial you will be able to do the following:
     }
     ```
 
-
-# Binding
+## Appendixes
+## Binding
 1. How can I get new selection in “select” in Angular 2?
     
     If you don't need two-way data-binding:
@@ -703,7 +707,7 @@ By the end of the tutorial you will be able to do the following:
     }
     ```
 
-# pipes
+## pipes
 1. generate pipe
     > ng generate pipe \<pipename>
     
@@ -736,7 +740,7 @@ By the end of the tutorial you will be able to do the following:
         - You must include your pipe in the declarations array of the AppModule. 
         
  
-# [Deployment](https://angular.io/guide/deployment)
+## [Deployment](https://angular.io/guide/deployment)
 1. install nginx
     ```bash
     sudo apt-get update
