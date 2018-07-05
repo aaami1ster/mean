@@ -734,3 +734,50 @@ By the end of the tutorial you will be able to do the following:
     
         - You use your custom pipe the same way you use built-in pipes.
         - You must include your pipe in the declarations array of the AppModule. 
+        
+ 
+# [Deployment](https://angular.io/guide/deployment)
+1. install nginx
+    ```bash
+    sudo apt-get update
+    # sudo apt-get install nginx
+    sudo wget http://nginx.org/keys/nginx_signing.key
+    sudo apt-key add nginx_signing.key
+    echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" | sudo tee /etc/apt/sources.list
+    echo "deb-src http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
+    sudo apt-get remove nginx-common
+    sudo apt-get update
+    sudo apt-get install nginx
+    ```
+1. control nginx
+    ```bash
+    # start nginx
+    sudo systemctl start nginx
+    
+    # check nginx status
+    sudo systemctl status nginx
+    
+    # Verify that NGINX Open Source is up and running:
+    curl -I 127.0.0.1
+
+    # stop nginx
+    sudo systemctl stop nginx
+    
+    # restart ngnix
+    sudo systemctl restart nginx
+    
+    # firewall
+    sudo ufw app list
+    sudo ufw allow 'Nginx HTTP'
+    sudo ufw status
+    
+    # If you are simply making configuration changes, Nginx can often reload without dropping connections. To do this, this command can be used:
+    sudo systemctl reload nginx
+    
+    # By default, Nginx is configured to start automatically when the server boots. If this is not what you want, you can disable this behavior by typing:
+    sudo systemctl disable nginx
+    
+    # To re-enable the service to start up at boot, you can type:
+    sudo systemctl enable nginx
+    ```
+    
