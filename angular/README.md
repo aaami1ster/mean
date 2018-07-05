@@ -702,3 +702,35 @@ By the end of the tutorial you will be able to do the following:
       }
     }
     ```
+
+# pipes
+1. generate pipe
+    > ng generate pipe \<pipename>
+    
+    example create pipe that receive string and return it with first letter capitalized
+    1. generate pip
+        ```shell
+        ng generate pipe capitalize-first
+        ```
+    1. replace transform method. the code should look like this
+        ```typescript
+        import { Pipe, PipeTransform } from '@angular/core';
+
+        @Pipe({
+          name: 'capitalizeFirst'
+        })
+        export class CapitalizeFirstPipe implements PipeTransform {
+        
+          transform(value: string, args?: any): any {
+            if (value === null) {
+              return 'Not assigned';
+            }
+            return value.charAt(0).toUpperCase() + value.slice(1);
+          }
+        
+        }
+        ```
+    1. use pipe
+    
+        - You use your custom pipe the same way you use built-in pipes.
+        - You must include your pipe in the declarations array of the AppModule. 

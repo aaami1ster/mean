@@ -182,3 +182,26 @@ The core components in the MongoDB package are:
     ```shell
     mongotop 15
     ```
+    
+# Authentication
+1. create admin user
+    ```
+    db.createUser({user: "admin", pwd: "Admin@2018", roles:["root"]})
+    ```
+1. find mongod.conf file and enable authentication
+    ```
+    security:
+        authorization: enabled
+    ```
+1. add user name drugdb-user to drug-db
+    ```bash
+    echo 'db.createUser({user:"drugdb-user", pwd:"12345678", roles:["readWrite"]});' > ./file.js
+    ```
+    ```bash
+    mongo --port 27017 -u "admin" -p "Admin@2018" --authenticationDatabase "admin" drug-db file.js
+    ```
+    ```bash
+    tailf /var/log/mongodb/mongod.log
+    ```
+
+    
