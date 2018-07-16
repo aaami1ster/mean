@@ -65,17 +65,17 @@
 // console.log('\r\nafter calling\r\n');
 
 // callback hell
-// const fs = require('fs');
-// const callback1 = function (error, data) {
-//     if (error) {
-//         return console.error(error);
-//     }
-//     console.log(data);
-// };
+const fs = require('fs');
+const callback1 = function (error, data) {
+    if (error) {
+        return console.error(error);
+    }
+    console.log(data);
+};
 
-// console.log('\r\calling readFile\r\n');
-// fs.readFile('README.txt', 'utf8', callback1);
-// console.log('\r\nafter calling\r\n');
+console.log('\r\calling readFile\r\n');
+fs.readFile('README.txt', 'utf8', callback1);
+console.log('\r\nafter calling\r\n');
 
 // event emmiter
 // const events = require('events');
@@ -95,14 +95,14 @@
 
 // promises
 // creating promise
-var promise = new Promise(function (resolve, reject) {
-    var success = true;
-    if (success) {
-        resolve('promise fulfilled');
-    } else {
-        reject(new Error('promise rejected'));
-    }
-});
+// var promise = new Promise(function (resolve, reject) {
+//     var success = true;
+//     if (success) {
+//         resolve('promise fulfilled');
+//     } else {
+//         reject(new Error('promise rejected'));
+//     }
+// });
 
 // promise's then() method
 // promise.then(function (result) {
@@ -112,12 +112,12 @@ var promise = new Promise(function (resolve, reject) {
 // });
 
 // promise chaining
-promise.then(function (result) {
-    console.log(result);
-    return 'THE END!';
-}).then(function (result) {
-    console.log(result);
-});
+// promise.then(function (result) {
+//     console.log(result);
+//     return 'THE END!';
+// }).then(function (result) {
+//     console.log(result);
+// });
 // var fs = require('fs');
 // var promise = new Promise(function (resolve, reject) {
 //     fs.readFile('README.txt', 'utf8', function (error, data) {

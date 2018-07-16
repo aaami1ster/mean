@@ -654,7 +654,7 @@ By the end of the tutorial you will be able to do the following:
 
 ## Appendixes
 ## Binding
-1. How can I get new selection in “select” in Angular 2?
+### How can I get new selection in “select” in Angular 2?
     
     If you don't need two-way data-binding:
     ```html
@@ -706,7 +706,18 @@ By the end of the tutorial you will be able to do the following:
       }
     }
     ```
+### ngIf
+1. ngIf
+    ```html
+    <div *ngIf="user">user.name</div>
+    ```
 
+1. ngIf else
+    ```html
+    <div *ngIf="user; else loading">user.name</div>
+    <ng-template #loading>loading...</ng-template>
+    ```
+1. 
 ## pipes
 1. generate pipe
     > ng generate pipe \<pipename>
