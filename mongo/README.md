@@ -203,5 +203,17 @@ The core components in the MongoDB package are:
     ```bash
     tailf /var/log/mongodb/mongod.log
     ```
-
     
+# Aggregation
+## [Aggregation Pipeline](https://docs.mongodb.com/manual/core/aggregation-pipeline/)
+- The aggregation pipeline is a framework for data aggregation modeled on the concept of data processing pipelines. 
+- Documents enter a multi-stage pipeline that transforms the documents into aggregated results
+- The aggregation pipeline provides an alternative to map-reduce and may be the preferred solution for aggregation tasks where the complexity of map-reduce may be unwarranted.
+- Aggregation pipeline have some limitations on value types and result size. 
+- MongoDB provides the `db.collection.aggregate()` method in the mongo shell and the `aggregate` command for aggregation pipeline
+## [Map Reduce](https://docs.mongodb.com/manual/core/map-reduce/)
+- Map-reduce is a data processing paradigm for condensing large volumes of data into useful aggregated results. 
+- For map-reduce operations, MongoDB provides the `mapReduce` database command.
+## references
+- [How to Do MongoDB Map-Reduce Jobs Easily | Studio 3T](https://studio3t.com/knowledge-base/articles/run-mongodb-map-reduce-jobs/)
+- [MongoDB Aggregate | Tutorial points](https://www.tutorialspoint.com/mongodb/mongodb_aggregation.htm)
