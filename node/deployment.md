@@ -208,4 +208,5 @@ rewrite reg-ex replacement [flag];
 ## References
 1. [Oh-My-Zsh! A Work of CLI Magic — Tutorial for Ubuntu](https://medium.com/wearetheledger/oh-my-zsh-made-for-cli-lovers-installation-guide-3131ca5491fb)
 1. [How to Install ZSH, Oh My Zsh and themes in Ubuntu on Windows](https://medium.com/@danielgodigna/how-to-install-zsh-oh-my-zsh-and-themes-in-ubuntu-on-windows-933489b6d6e0)
+1. [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes)
 1. [solve perl: warning: Setting locale failed.](https://gist.github.com/panchicore/1269109)

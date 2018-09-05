@@ -122,6 +122,30 @@ The most important shell methods are list bellow. Find the full list of methods 
     ```
    > db.people.remove({name: {$regex: 'Abd$'}}, {justOne: true})
    ```
+   
+### [Indexes](https://docs.mongodb.com/manual/indexes/)
+1. List all Indexes on a Collection
+    > db.\<collection-name\>.getIndexes()
+    
+    ```
+    > db.people.getIndexes()
+    ```
+1. Remove An Index
+    > db.\<collection-name\>.dropIndex()
+    
+    For example, the following operation removes an ascending index on the tax-id field in the accounts collection:
+    
+    ```
+    > db.people.dropIndex({ "tax-id": 1 })
+    ```
+    
+1. Remove All Indexes
+    > db.\<collection-name\>.dropIndexes()
+    
+    ```
+    > db.people.dropIndexes()
+    ```
+   
 ## Exit the Shell
 To exit the shell, type quit() or use the \<Ctrl-C\> shortcut.
 
